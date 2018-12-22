@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+
+    $.ajax({url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
+    success: function(result){
+
+      $("#div1").html(result.total);
+      $("#div2").html(result.data[0].id);
+      $("#div3").html(result.data[1].name);
+      $("#div4").html('<img src=" ' + result.data[1].image +'" />');
+      $("#div5").html(result.data[1].shot_description);
+      $("#div6").html(result.data[1].price);
+      $("#div7").html(result.data[1].now_showing);
+
+
+    }});
+  });
+
+</script>
+</head>
+<body>
+
+<div id="div1"> </div>
+<div id="div4"> </div>
+<div id="div2"> </div>
+<div id="div3"> </div>
+<div id="div5"> </div>
+<div id="div6"> </div>
+<div id="div7"> </div>
+
+</body>
+</html>
