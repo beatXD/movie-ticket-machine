@@ -1,140 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Cinema.</title>
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="css/modern-business.css" rel="stylesheet">
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  </head>
-  <style>
-    p {
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Cinema.</title>
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="css/modern-business.css" rel="stylesheet">
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<style>
+  p {
       text-align: center;
     }
-
     .r{
       text-align: right;
     }
     .l{
       text-align: left;
     }
+    .qq{
+      width: 250px;
+      height: 300px;
+    }
   </style>
- 
-<!-- ----------------------------------------------------------------------------- -->
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a  class="navbar-brand" href="index.html">Cinema Ticket.</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">ภาพยนตร์</a>
-            </li>
 
-          </ul>
-        </div>
+<!-- ----------------------------------------------------------------------------- -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Cinema Ticket.</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">ภาพยนตร์</a>
+        </li>
+      </ul>
+    </div> -->
+  </div>
+</nav>
+<!-- ----------------------------------------------------------------------------- -->
+<header>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+     <div class="carousel-item active">
+        <p> <img src="img/aven.jpg" width="70%" height="600px"> </p>
+        <div class="carousel-caption d-none d-md-block">
       </div>
-    </nav>
-<!-- ----------------------------------------------------------------------------- -->
-    <header>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>       
-        <div class="carousel-inner" role="listbox" >
-          <div class="carousel-item active"> <p> <img src="img/aven.jpg" </p>
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item" > <p> <img src="img/deadpool2.jpg" <p>
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-          <div class="carousel-item" > <p> <img src="img/bumblebeee.jpg" <p>
-            <div class="carousel-caption d-none d-md-block">
-            </div>
-          </div>
-        </div>  
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-    </header>
-<!-- ----------------------------------------------------------------------------- -->
-<body>
-    <div class="container">
-      <h1 class="my-4">Movies.</h1>
-        
-
-            <script>  
-                $(document).ready(function(){
-                    $.ajax({url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
-                    success: function(result){
-                      var i;
-                    for( i = 0 ; i<12 ; i++ ){
-
-                      $("#image").append('<img src=" ' + result.data[i].image +'" />');
-                      $("#name").append(result.data[i].name);
-                      $("#descript").append(result.data[i].shot_description);
-                      $("#price").append(result.data[i].price);
-                      $("#showing").append(result.data[i].now_showing);
-
-                      
-                      $("#aa").append('<div class ="zz" ><img src=" ' + 
-                        result.data[i].image +'" />' + '<br>'+
-                        result.data[i].name +  '<br>'+
-                        result.data[i].shot_description + '<br>'+ 
-                        'Showing Now : ' +  result.data[i].now_showing + '<br>'+
-                        'Price' + result.data[i].price + ' Bath'+ "</div>" );
-                    }
-                    }});
-                  });
-            </script> 
-
-            <div id="aa">
-            </div>
-
-    <div class="row">
-    <div class="col-lg-4 col-sm-6 portfolio-item">
-      <div class="card h-10"> <a id = "image"> </a>
-        <div class="card-body">
-              <h4 class="card-title"> <a id= "name"></a></h4>
-              <p class="card-text"> <a id = "descript"> </a>  </p>
+    </div>
+    <div class="carousel-item">
+       <p> <img src="img/deadpool2.jpg" width="70%" height="600px"> </p>
+        <div class="carousel-caption d-none d-md-block">
         </div>
-          <div class="card-footer">
-              <a>Price :</a>   <a id = "price"> </a> Bath   Showing : <a id = "showing"></a> 
-              <a href="#" class="btn btn-primary">BUY NOW</a> 
-          </div>
+    </div>
+    <div class="carousel-item"> 
+      <p> <img src="img/bumblebeee.jpg" width="70%" height="600px" > </p>
+        <div class="carousel-caption d-none d-md-block">
+        </div>
     </div>
   </div>
-</div> 
 
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
   </div>
+</header>
 <!-- ----------------------------------------------------------------------------- -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
-      </div>
-    </footer>
- </body>
+  
+
+<body>
+    <script>
+      $(document).ready(function () {
+        $.ajax({
+          url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
+          success: function (result) {
+            var i;
+            for (i = 0; i < 12; i++) {
+
+              // $("#image").append('<img src=" ' + result.data[i].image + '" />');
+              // $("#name").append(result.data[i].name);
+              // $("#descript").append(result.data[i].shot_description);
+              // $("#price").append(result.data[i].price);
+              // $("#showing").append(result.data[i].now_showing);
+
+              $("#aa").append(
+                '<div class="col-lg-3 col-sm-7 portfolio-item"><img class ="qq"src=" ' +
+                  result.data[i].image + '" />'+
+                '<div class="card-body"> <h4 class="card-title">' +
+                  result.data[i].name + '</h4>' + '</div>' + 
+                '<div class="card-footer">' +
+                'Showing Now : ' + result.data[i].now_showing + '<br>' +
+                'Price' + result.data[i].price + ' Bath' + "</div>"+
+                '<a href="#" class="btn btn-primary">BUY NOW</a>' + '</div> </div> </div> ');
+
+
+              //$("#aa").append('<div class ="zz" ><img src=" ' + 
+              // result.data[i].image +'" />' + '<br>'+
+              // result.data[i].name +  '<br>'+
+              //   result.data[i].shot_description + '<br>'+ 
+              //   'Showing Now : ' +  result.data[i].now_showing + '<br>'+
+              //   'Price' + result.data[i].price + ' Bath'+ "</div>" );
+            }
+          }
+        });
+      });
+    </script>
+<div class="container">
+    <br><br>
+    <h1 class="my-6">Movies.</h1> <br><br>
+    <div id="aa" class="row">
+
+    </div>
+  </div>
+</body>
 <!-- ----------------------------------------------------------------------------- -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+    </div>
+  </footer>
+<!------------------------------------------------------------------------------- -->
 </html>
-
-

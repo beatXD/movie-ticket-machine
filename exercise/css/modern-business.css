@@ -6,6 +6,7 @@
 
 body {
   padding-top: 54px;
+ 
 }
 
 @media (min-width: 992px) {
@@ -13,7 +14,7 @@ body {
     padding-top: 56px;
   }
 }
-header {
+header{
   background-color: black;
 }
 .carousel-item {
@@ -28,9 +29,7 @@ header {
 
 }
 
+
 .portfolio-item {
   margin-bottom: 30px;
-}
-.zz{
-  border: solid 1.5px black;
 }
