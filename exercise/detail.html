@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Cinema.</title>
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/modern-business.css" rel="stylesheet">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU'
+        crossorigin='anonymous'>
+</head>
+
+<!-- ----------------------------------------------------------------------------- -->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <i><img src="img/camera.png" height="50px" width="50px"></i>
+        <a class="navbar-brand" href="index.html">
+            <h5>Movie Ticket Machine.</h5>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+<body>
+    <div class="poo">
+        <div class="container" style="background-color: white;">
+            <br><br>
+            <h1 class="my-2 p">Movies-List.</h1> <br><br>
+            <button class="btn btn-warning back">Back</button> <br><br>
+            <div id="movie-list" class="row ">
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- ----------------------------------------------------------------------------- -->
+
+<footer class="py-4 bg-dark">
+    <div class="container">
+        <p class="m-0 text-center text-white"> Copyright ©</p>
+    </div>
+</footer>
+
+<!------------------------------------------------------------------------------- -->
+<script>
+    $(document).ready(function () {
+        var parameter = GetParameterValues('id')-1;
+
+        function GetParameterValues(parameter) {
+            var url = window.location.href.slice(window.location.href.detail.html('?') + 1).split('&');
+            for (var i = 0; i < url.length; i++) {
+                var urlparam = url[i].split('=');
+                if (urlparam[0] == param) {
+                    return urlparam[1];
+                }
+            }
+        }
+    });
+    //--------------------------------------------------------------------------------------------------------------            
+    $.ajax({
+        url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
+        success: function (result) {
+            var i;
+            for (i = 0; i < 12; i++) {
+                $("#movie-list").append(
+                    '<div class="col-sm-3">' +
+                    '<img class ="qq" src=" ' + result.data[i].image + ' ">' +
+                    '<div class="card-body" > <h5>' + result.data[i].name + '</h5>' + '</div>' +
+                    '<div>' + result.data[i].shot_description + '</div>' + '<br> ' +
+                    '<div class="card-footer">' + 'Showing Now : ' + result.data[i].now_showing +
+                    '<br>' +
+                    'Price : ' + result.data[i].price + ' Bath' + '</div>' +
+                    '<br>' + '<div class="btn btn-success">  BUY NOW </div>' + '<br> <br> <br>' +
+                    '</div>'
+                );
+            }
+        }
+    });
+
+    //--------------------------------------------------------------------------------------------------------------
+</script>
+</html>

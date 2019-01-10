@@ -14,14 +14,17 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU'
+    crossorigin='anonymous'>
 </head>
 
 <!-- ----------------------------------------------------------------------------- -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-       <i><img src="img/camera.png" height="50px" width="50px"></i>
-       <a class="navbar-brand" href="index.html"> <h5>Movie Ticket Machine.</h5> </a>
+    <i><img src="img/camera.png" height="50px" width="50px"></i>
+    <a class="navbar-brand" href="index.html">
+      <h5>Movie Ticket Machine.</h5>
+    </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
       aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -61,15 +64,15 @@
 
 <body>
   <div class="poo">
-  <div class="container" style="background-color: white;">
-    <br><br>
-    <h1 class="my-2 p">Movies-List.</h1> <br><br>
-    <button class="btn btn-warning back">Back</button> <br><br>
-    <div id="movie-list" class="row ">
-    
+    <div class="container" style="background-color: white;">
+      <br><br>
+      <h1 class="my-2 p">Movies-List.</h1> <br><br>
+      <button class="btn btn-warning back">Back</button> <br><br>
+      <div id="movie-list" class="row ">
+
+      </div>
+    </div>
   </div>
-</div>
-</div>
 
 </body>
 
@@ -81,34 +84,33 @@
 </footer>
 <!------------------------------------------------------------------------------- -->
 <script>
-    $(document).ready(function () {
-      $.ajax({
-        url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
-        success: function (result) {
-          var i;
-          for (i = 0; i < 12; i++) {
-            $("#movie-list").append(
-                '<div class="col-sm-3">'+ 
-                  '<img class ="qq" src=" ' + result.data[i].image + ' ">' + 
-                  '<div class="card-body" > <h5>'+ result.data[i].name + '</h5>' + '</div>' +
-                  '<div class = "detail">' + result.data[i].shot_description + '</div>' +  '<br> ' + 
-                  '<div class="card-footer">'+'Showing Now : ' + result.data[i].now_showing + '<br>' + 'Price : ' + result.data[i].price + ' Bath' + '</div>' + 
-                  '<br>' + '<div class="btn btn-success" > BUY NOW </div>' + '<br> <br> <br>' + 
-                '</div>'  
+  $(document).ready(function () {
+        $.ajax({
+          type: 'GET',
+          dataType: 'json',
+          url: "http://www.mocky.io/v2/5bab559f3000006800a68762",
+          success: function (result) {
+            var i ;
+            for (i = 0; i < 12; i++) {
+              $("#movie-list").append(
+               
+                '<div class="col-sm-3">' +
+                '<a href = "detail.html?id=" '+ result.data[i].id +' ">' + 
+                '<img class ="qq" src=" '+result.data[i].image+' ">' +
+                '<div class="card-body" > <h5>' + result.data[i].name + '</h5>' + '</div>' +
+                '<div class = "detail">' + result.data[i].shot_description + '</div>' + '<br> ' +
+                '<div class="card-footer">' + 'Showing Now : ' + result.data[i].now_showing + '<br>' +
+                'Price : ' + result.data[i].price + ' Bath' + '</div>' +
+                '<br>' +'<div class="btn btn-success"> Details </div>' + "<br> <br> <br>" +
+                '</div>'+
+                '</a>'
+                
               );
+            }
           }
-        }
-      });
-  // ----------------------------------------------------------------------------- --//
-      $('#movie-list').on("click", ".col-sm-3", function () {
-                $(this).siblings().hide();
-                $(".detail,.back").show();
-            });
+        });
+        });
 
-      $('.back').click(function () {
-                $(".col-sm-3").siblings().show();
-                $(".detail,.back").hide();
-            });
-    }); 
-  </script>
-</html>
+</script>
+
+
